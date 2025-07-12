@@ -6,6 +6,9 @@
     "paths": {
       "cust-mat-tooltip": [
         "dist/cust-mat-tooltip"
+      ],
+      "mat-custom-tooltip": [
+        "dist/mat-custom-tooltip"
       ]
     },
     "outDir": "./dist/out-tsc",

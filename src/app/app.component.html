@@ -1,6 +1,6 @@
 <h1>{{title}}</h1>
 <p >Welcome to the Angular application!</p>
-<button #tooltipc="custToolTip" custToolTip [toolTipMessage]="'<h2>custToolTip</h2>'">custToolTip</button>
+<button #tooltipc="matCustomTooltip" matCustomTooltip [toolTipMessage]="'<h2>custToolTip</h2>'">custToolTip</button>
 <ng-template #customTooltip>
     <h3>NEW CUST</h3>
 </ng-template>

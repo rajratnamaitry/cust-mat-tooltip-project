@@ -96,23 +96,23 @@
         }
       }
     },
-    "cust-mat-tooltip": {
+    "mat-custom-tooltip": {
       "projectType": "library",
-      "root": "projects/cust-mat-tooltip",
-      "sourceRoot": "projects/cust-mat-tooltip/src",
+      "root": "projects/mat-custom-tooltip",
+      "sourceRoot": "projects/mat-custom-tooltip/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/cust-mat-tooltip/ng-package.json"
+            "project": "projects/mat-custom-tooltip/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/cust-mat-tooltip/tsconfig.lib.prod.json"
+              "tsConfig": "projects/mat-custom-tooltip/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/cust-mat-tooltip/tsconfig.lib.json"
+              "tsConfig": "projects/mat-custom-tooltip/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -120,7 +120,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/cust-mat-tooltip/tsconfig.spec.json",
+            "tsConfig": "projects/mat-custom-tooltip/tsconfig.spec.json",
             "polyfills": [
               "zone.js",
               "zone.js/testing"
