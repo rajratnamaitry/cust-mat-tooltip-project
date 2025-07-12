@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { CustMatTooltipModule } from 'projects/cust-mat-tooltip/src/public-api';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -7,6 +8,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      imports: [CustMatTooltipModule]
     }).compileComponents();
   });
 
@@ -22,10 +24,25 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('cust-mat-tooltip-project');
   });
 
-  it('should render title', () => {
+  it('should render title in an h1 tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('cust-mat-tooltip-project app is running!');
+    expect(compiled.querySelector('h1')?.textContent).toContain('cust-mat-tooltip-project');
+  });
+
+  it('should render welcome message', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('p')?.textContent).toContain('Welcome to the Angular application!');
+  });
+
+  it('should have a button with custToolTip directive', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    const button = compiled.querySelector('button[custToolTip]');
+    expect(button).toBeTruthy();
   });
 });

@@ -1,27 +1,84 @@
 # CustMatTooltipProject
+The Angular Material tooltip provides a text label that is displayed when the user hovers
+over or longpresses an element.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.11.
+<!-- example(tooltip-overview) -->
 
-## Development server
+### Positioning
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+The tooltip will be displayed below the element but this can be configured using the
+`matTooltipPosition` input.
+The tooltip can be displayed above, below, left, or right of the element. By default the position
+will be below. If the tooltip should switch left/right positions in an RTL layout direction, then
+the positions `before` and `after` should be used instead of `left` and `right`, respectively.
 
-## Code scaffolding
+| Position  | Description                                                                          |
+|-----------|--------------------------------------------------------------------------------------|
+| `above`   | Always display above the element                                                     |
+| `below`   | Always display beneath the element                                                   |
+| `left`    | Always display to the left of the element                                            |
+| `right`   | Always display to the right of the element                                           |
+| `before`  | Display to the left in left-to-right layout and to the right in right-to-left layout |
+| `after`   | Display to the right in left-to-right layout and to the left in right-to-left layout |
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Based on the position in which the tooltip is shown, the `.mat-tooltip-panel` element will receive a
+CSS class that can be used for style (e.g. to add an arrow). The possible classes are
+`mat-tooltip-panel-above`, `mat-tooltip-panel-below`, `mat-tooltip-panel-left`,
+`mat-tooltip-panel-right`.
 
-## Build
+<!-- example(tooltip-position) -->
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+To display the tooltip relative to the mouse or touch that triggered it, use the
+`matTooltipPositionAtOrigin` input.
+With this setting turned on, the tooltip will display relative to the origin of the trigger rather
+than the host element. In cases where the tooltip is not triggered by a touch event or mouse click,
+it will display the same as if this setting was turned off.
 
-## Running unit tests
+### Showing and hiding
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+By default, the tooltip will be immediately shown when the user's mouse hovers over the tooltip's
+trigger element and immediately hides when the user's mouse leaves.
 
-## Running end-to-end tests
+On mobile, the tooltip is displayed when the user longpresses the element and hides after a
+delay of 1500ms.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+#### Show and hide delays
 
-## Further help
+To add a delay before showing or hiding the tooltip, you can use the inputs `matTooltipShowDelay`
+and `matTooltipHideDelay` to provide a delay time in milliseconds.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The following example has a tooltip that waits one second to display after the user
+hovers over the button, and waits two seconds to hide after the user moves the mouse away.
+
+<!-- example(tooltip-delay) -->
+
+#### Changing the default delay behavior
+
+You can configure your app's tooltip default show/hide delays by configuring and providing
+your options using the `MAT_TOOLTIP_DEFAULT_OPTIONS` injection token.
+
+<!-- example(tooltip-modified-defaults) -->
+
+#### Manually calling show() and hide()
+
+To manually cause the tooltip to show or hide, you can call the `show` and `hide` directive methods,
+which both accept a number in milliseconds to delay before applying the display change.
+
+<!-- example(tooltip-manual) -->
+
+#### Disabling the tooltip from showing
+
+To completely disable a tooltip, set `matTooltipDisabled`. While disabled, a tooltip will never be
+shown.
+
+### Accessibility
+
+`MatTooltip` adds an `aria-describedby` description that provides a reference
+to a visually hidden element containing the tooltip's message. This provides screen-readers
+the information needed to read out the tooltip's contents when the end-user focuses on
+tooltip's trigger. The element referenced by `aria-describedby` is not the tooltip itself,
+but instead an invisible copy of the tooltip content that is always present in the DOM.
+
+Avoid interactions that exclusively show a tooltip with pointer events like click and mouseenter.
+Always ensure that keyboard users can perform the same set of actions available to mouse and
+touch users.
