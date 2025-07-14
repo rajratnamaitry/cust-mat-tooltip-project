@@ -4,7 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatCustomTooltipModule } from 'projects/MatCustomTooltip/src/public-api';
+// import { MatCustomTooltipModule } from '../../node_modules/mat-custom-tooltip/src/public-api';
+import { MatCustomTooltipModule } from 'mat-custom-tooltip';
 
 @NgModule({
   declarations: [
