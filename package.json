@@ -1,19 +1,29 @@
 {
   "name": "cust-mat-tooltip-project",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "description": "An Angular library that extends Angular Material's tooltip with HTML content, custom positions, manual control, and accessibility support.",
   "author": "rajratna maitry",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rajratnamaitry/MatCustomTooltip"
+    "url": "git+https://github.com/rajratnamaitry/MatCustomTooltip.git"
   },
+  "keywords": [
+    "angular",
+    "material",
+    "tooltip",
+    "custom",
+    "html",
+    "directive"
+  ],
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build MatCustomTooltip",
     "watch": "ng build MatCustomTooltip --watch --configuration development",
     "test": "ng test MatCustomTooltip",
-    "publish": "npm run build && npm publish --access public"
+    "publish": "npm publish --access public",
+    "unpublish": "npm unpublish mat-custom-tooltip@2.0.0 --force"
   },
   "dependencies": {
     "@angular/animations": "^15.2.0",
@@ -26,7 +36,7 @@
     "@angular/platform-browser": "^15.2.0",
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
-    "mat-custom-tooltip": "^1.0.1",
+    "mat-custom-tooltip": "^2.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
