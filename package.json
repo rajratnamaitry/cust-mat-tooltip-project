@@ -19,11 +19,13 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build MatCustomTooltip",
+    "build": "ng build",
     "watch": "ng build MatCustomTooltip --watch --configuration development",
-    "test": "ng test MatCustomTooltip",
-    "publish": "npm publish --access public",
-    "unpublish": "npm unpublish mat-custom-tooltip@2.0.0 --force"
+    "build:lib": "ng build MatCustomTooltip",
+    "test:lib": "ng test MatCustomTooltip",
+    "publish:lib": "npm publish --access public",
+    "unpublish": "npm unpublish mat-custom-tooltip@2.0.0 --force",
+    "deploy": "ng build --base-href /cust-mat-tooltip-project/ && npx gh-pages -d dist/cust-mat-tooltip-project -b gh-pages"
   },
   "dependencies": {
     "@angular/animations": "^15.2.0",
@@ -46,6 +48,7 @@
     "@angular/cli": "~15.2.11",
     "@angular/compiler-cli": "^15.2.0",
     "@types/jasmine": "~4.3.0",
+    "gh-pages": "^6.3.0",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
