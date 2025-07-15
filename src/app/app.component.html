@@ -1,13 +1,170 @@
-<button #coolTooltip="matCustomTooltip" matCustomTooltip [toolTipMessage]="tooltipContent">custToolTip</button>
-<button matButton
-  (click)="coolTooltip.show()"
-  aria-label="Show tooltip on the button at the end of this section"
-  class="example-action-button">
+<!--  -->
+<mat-card class="mat-elevation-z2">
+  <mat-card-title>Tooltip</mat-card-title>
+  <mat-card-subtitle>
+    Tooltips display informative text when users hover over, focus on, or tap an element.
+  </mat-card-subtitle>
+  <mat-card-content>
+
+
+
+    <mat-tab-group>
+
+      <!-- Basic Tooltip -->
+      <mat-tab label="Basic">
+        <mat-card>
+          <mat-card-title>Basic Tooltip</mat-card-title>
+
+          <mat-card-subtitle>Code Example</mat-card-subtitle>
+          <mat-card-content>
+            <button mat-raised-button matCustomTooltip [toolTipMessage]="tooltipContent"
+              aria-label="Button that displays a tooltip when focused or hovered over">
+              Action
+            </button>
+
+            <pre>
+        <code>
+&lt;button mat-raised-button
+       matCustomTooltip [toolTipMessage]="tooltipContent"
+        aria-label="Button with a tooltip"&gt;
+  Action
+&lt;/button&gt;
+      </code></pre>
+            <pre><code>
+get tooltipContent(): string &#10;
+  return `&lt;div class=&#39;cool-tooltip-content&#39;&gt;
+    &lt;h3&gt;✨ Welcome!&lt;/h3&gt;
+    &lt;p&gt;This is a &lt;b&gt;stylish&lt;/b&gt; tooltip with 
+      &lt;span class=&#39;highlight&#39;&gt;custom CSS&lt;/span&gt;.
+    &lt;/p&gt;
+  &lt;/div&gt;`;
+&#10;
+</code></pre>
+
+            <pre><code [innerText]="cssContent"></code></pre>
+          </mat-card-content>
+        </mat-card>
+      </mat-tab>
+
+      <!-- Tooltip Position -->
+      <mat-tab label="Position">
+        <mat-card>
+          <mat-card-title>Tooltip Position</mat-card-title>
+          
+            <mat-card-subtitle>Code Example</mat-card-subtitle>
+          <mat-card-content>
+            <button mat-raised-button matCustomTooltip [toolTipMessage]="tooltipPostContent('Above')"
+              matTooltipPosition="above">Above</button>
+            <button mat-raised-button matCustomTooltip [toolTipMessage]="tooltipPostContent('Below')"
+              matTooltipPosition="below">Below</button>
+            <button mat-raised-button matCustomTooltip [toolTipMessage]="tooltipPostContent('Right')"
+              matTooltipPosition="right">Right</button>
+            <button mat-raised-button matCustomTooltip [toolTipMessage]="tooltipPostContent('Left')"
+              matTooltipPosition="left">Left</button>
+
+            <pre><code>
+&lt;button mat-raised-button matCustomTooltip [toolTipMessage]="tooltipPostContent('Above')" matTooltipPosition="above"&gt;Above&lt;/button&gt;
+&lt;button mat-raised-button matCustomTooltip [toolTipMessage]="tooltipPostContent('Below')" matTooltipPosition="below"&gt;Below&lt;/button&gt;
+&lt;button mat-raised-button matCustomTooltip [toolTipMessage]="tooltipPostContent('Left')" matTooltipPosition="left"&gt;Left&lt;/button&gt;
+&lt;button mat-raised-button matCustomTooltip [toolTipMessage]="tooltipPostContent('Right')" matTooltipPosition="right"&gt;Right&lt;/button&gt;
+      </code></pre>
+            <pre><code [innerText]="cssContent"></code></pre>
+          </mat-card-content>
+        </mat-card>
+      </mat-tab>
+
+      <!-- Tooltip with Delay -->
+      <mat-tab label="Delay">
+        <mat-card>
+          <mat-card-title>Tooltip Delay</mat-card-title>
+
+          <mat-card-subtitle>Code Example</mat-card-subtitle>
+          <mat-card-content>
+            <button mat-raised-button matCustomTooltip [toolTipMessage]="tooltipContent" [matTooltipShowDelay]="1000"
+              [matTooltipHideDelay]="2000">
+              Show/Hide Delay
+            </button>
+
+            <pre>
+            <code>
+              &lt;button mat-raised-button
+          matTooltip="Delayed tooltip"
+          [matTooltipShowDelay]="1000"
+          [matTooltipHideDelay]="2000"&gt;
+          Show/Hide Delay
+          &lt;/button&gt;
+            </code>
+          </pre>
+            <pre><code [innerText]="cssContent"></code></pre>
+          </mat-card-content>
+        </mat-card>
+      </mat-tab>
+
+      <!-- Tooltip with Control -->
+      <mat-tab label="Control">
+        <mat-card>
+          <mat-card-title>Tooltip show/hide</mat-card-title>
+          <mat-card-subtitle>Code Example</mat-card-subtitle>
+
+          <mat-card-content>
+            <button #coolTooltip="matCustomTooltip" mat-raised-button matCustomTooltip
+              [toolTipMessage]="tooltipContent"> Hover for Custom Tooltip</button>
+            <button matButton mat-raised-button (click)="coolTooltip.show()"
+             color="primary"
+              aria-label="Show tooltip on the button at the end of this section" class="example-action-button">
+              Show Mat Custom Tooltip
+            </button>
+            <button matButton mat-raised-button (click)="coolTooltip.hide()"
+             color="warn"
+              aria-label="Show tooltip on the button at the end of this section" class="example-action-button">
+              Hide Mat Custom Tooltip
+            </button>
+            <pre><code>
+&lt;button #coolTooltip="matCustomTooltip"
+        mat-raised-button
+        matCustomTooltip
+        [toolTipMessage]="tooltipContent"&gt;
+  Hover for Custom Tooltip
+&lt;/button&gt;
+
+&lt;button matButton
+        mat-raised-button
+        (click)="coolTooltip.show()"
+        aria-label="Show tooltip on the button at the end of this section"
+        class="example-action-button"&gt;
   Show Mat Custom Tooltip
-</button>
-<button matButton
-  (click)="coolTooltip.hide()"
-  aria-label="Show tooltip on the button at the end of this section"
-  class="example-action-button">
+&lt;/button&gt;
+
+&lt;button matButton
+        mat-raised-button
+        (click)="coolTooltip.hide()"
+        aria-label="Hide tooltip on the button at the end of this section"
+        class="example-action-button"&gt;
   Hide Mat Custom Tooltip
-</button>
+&lt;/button&gt;
+</code></pre>
+
+            <pre><code [innerText]="cssContent"></code></pre>
+          </mat-card-content>
+        </mat-card>
+      </mat-tab>
+
+
+    </mat-tab-group>
+  </mat-card-content>
+
+</mat-card>
+<!-- 
+<ng-template #tooltipTpl>
+  <div class="cool-tooltip-content">
+    <h3>✨ Welcome!</h3>
+    <p>This is a <b>stylish</b> tooltip with
+      <span class="highlight">custom CSS</span>.
+    </p>
+  </div>
+</ng-template>
+
+<button mat-raised-button [matCustomTooltip]="tooltipTpl">
+  Hover for Styled Tooltip
+</button> 
+-->
